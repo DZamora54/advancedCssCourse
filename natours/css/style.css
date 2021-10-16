@@ -1,0 +1,141 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Simple reset using the universal selector */
+* {
+  /* No margin or padding added by the browser. */
+  margin: 0;
+  padding: 0;
+  /* Borders and padding are not added to total height and width of elements. */
+  box-sizing: border-box;
+
+}
+
+body {
+  /* Setting font-family and project wide font definitions in body selector to use power of inheritance */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #777;
+  /* Applying padding around entire body. */
+  padding: 30px;
+}
+
+/* Using header class to format the header element. */
+.header {
+  /* The height is always 95% of the viewport height. */
+  height: 95vh;
+  /* Setting the background image. */
+  /* Specify gradients and opacity using background image property */
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(126, 213,111, 0.8),
+    rgba(40, 180, 131, 0.8)),
+  url(../img/hero.jpg);
+  /* Set background size to cover. Whatever the width of the viewport or element, cover will try to fit the element inside of the box. */
+  background-size: cover;
+  /* Setting background position to top so that the top of the image always stays at the top of the container; Top, bottom or center are options. */
+  background-position: top;
+  /* Clip out part of the image using clip-path. Specifying a polygon in which the image or element will still be visible. Coordinates are used to define the polygon; coordinates start at top left and go clockwise and are defined as percent, pixels or any other unit. */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  position: relative;
+}
+
+.logo-box {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  /* top and left are in relation to the parent element */
+  top: 40%;
+  left: 50%;
+  /* transorm is in relation to the element itself */
+  transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+}
+
+/* Displaying main and sub primary heading as block level elements so that they occupy all available width and create line breaks after and before. Span elements are by default inline elements. */
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+  animation-name: moveInLeft;
+  /* animation-duration is the time that the animation should take. */
+  animation-duration: 1s;
+  /* animation-delay delays the start of the animation. */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count repeats the animation the defined number of times. */
+  /* animation-iteration-count: 3; */
+  /* animation-timing-function specifies how a CSS animation should progress over the duration of each cycle. */
+  animation-timing-function: ease-out;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+  animation-name: moveInRight;
+  /* animation-duration is the time that the animation should take. */
+  animation-duration: 1s;
+  /* animation-delay delays the start of the animation. */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count repeats the animation the defined number of times. */
+  /* animation-iteration-count: 3; */
+  /* animation-timing-function specifies how a CSS animation should progress over the duration of each cycle. */
+  animation-timing-function: ease-out;
+}
+
+/* Moves an element in from the left, bounces it back at 80% through the animation to the defined position. */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The negative value moves the element to the left. A positive value would move the element to the right. */
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translate(10px); 
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}
+
+/* Moves an element in from the right, bounces it back at 80% through the animation to the defined position. */
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The positive value moves the element to the right. A negative value would move the element to the left. */
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translate(-10px); 
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}
