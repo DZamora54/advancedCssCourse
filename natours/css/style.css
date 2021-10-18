@@ -65,12 +65,14 @@ body {
   left: 50%;
   /* transorm is in relation to the element itself */
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 /* Displaying main and sub primary heading as block level elements so that they occupy all available width and create line breaks after and before. Span elements are by default inline elements. */
@@ -104,6 +106,8 @@ body {
   /* animation-iteration-count: 3; */
   /* animation-timing-function specifies how a CSS animation should progress over the duration of each cycle. */
   animation-timing-function: ease-out;
+  /* following covers animation-name, animation-duration and animation-timing-function */
+  /* animation: moveInRight 1s ease-out */
 }
 
 /* Moves an element in from the left, bounces it back at 80% through the animation to the defined position. */
@@ -132,6 +136,75 @@ body {
   }
   80% {
     transform: translate(-10px); 
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}
+
+/* Styling the button element */
+/* Pseudo class for the button */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 15px 40px;
+  display: inline-block;
+  border-radius: 100px;
+  transition: all .2s;
+  position: relative;
+}
+
+/* hovering over the button make the button appear to rise off the page with motion and shadow */
+.btn:hover {
+  transform: translateY(-3px);
+  /* box-shadow: shadowInXDirection shadowInYDirection shadowBlur shadowColorAndOpacity*/
+  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+}
+
+/* clicking on the button makes the button appear to be clicked down and closer to the page with motion down from hover state and a smaller and less blurry shadow */
+.btn:active {
+  transform: translateY(-1px);
+    /* box-shadow: shadowInXDirection shadowInYDirection shadowBlur shadowColorAndOpacity*/
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* adds an element that looks exactly lie the existing button and is put behind the and hovering out of the element the hidden pseudo-element goes back behind the element.  */
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+.btn-white::after {
+  background-color: #fff;
+}
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
+}
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The negative value moves the element to the top. A positive value would move the element to the bottom. */
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
