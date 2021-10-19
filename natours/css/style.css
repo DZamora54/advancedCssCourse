@@ -177,12 +177,14 @@ body {
 }
 
 /* adds an element that looks exactly lie the existing button and is put behind the and hovering out of the element the hidden pseudo-element goes back behind the element.  */
+/* psuedo elements do not appear without defining the content and display properties */
 .btn::after {
   content: "";
   display: inline-block;
   height: 100%;
   width: 100%;
   border-radius: 100px;
+  /* absolute position needs a reference; the reference is the first element with a relative position that it can find, in this case it is the button (.btn:link)  */
   position: absolute;
   top: 0;
   left: 0;
@@ -192,14 +194,21 @@ body {
 .btn-white::after {
   background-color: #fff;
 }
+
+/* after psuedo element only when button is in the hover state */
+/* here the button grows and fades out or makes the element become invisible */
 .btn:hover::after {
+  /* scale multiplies the size of the element. for example a scale value 2 doubles the size of the element */
   transform: scaleX(1.4) scaleY(1.6);
+  /* going to opacity 0 fades the element out */
   opacity: 0;
 }
 .btn-animated {
   animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards;
 }
+
+/* moves the button in from the bottom */
 @keyframes moveInBottom {
   0% {
     opacity: 0;
