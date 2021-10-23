@@ -1,4 +1,5 @@
 <h1>Section 3: How CSS Works: A Look Behind the Scenes</h1>
+<p>These are some of the highlights copied from Section 3 of the course</p>
 <h2>Three Pillars of Writing Good HTML and CSS &#40Never Forget Them!&#41</h2>
 <h3>Three Pillars to Write Good HTML and CSS... and Build Good Websites</h3>
 <ul>
@@ -34,3 +35,48 @@
   <li>Less images</li>
   <li>Compress images</li>
 </ul>
+
+
+<h2>How CSS is Parsed, Part 1: The Cascade and Specificity</h2>
+<h3>The Cascade</h3>
+<p>Process of combining different stylesheets and resolving conflicts between different CSS rules and declarations, when more than one rule applies to a certain element.</p>
+<ul>
+  <li>Author declarations: the CSS that the developers write and put in the stylesheets.</li>
+  <li>User declarations: the CSS coming from the user. For instance when the user changes the default font size in the browser.</li>
+  <li>Browser &#40user agent&#41 declarations: the CSS set by the browser.</li>
+</ul>
+<p>The cascade combines the CSS declarations coming from these sources using importance, specificity and source order.</p>
+<h4>Importance</h4>
+<ol>
+  <li>User !important declarations</li>
+  <li>Author !important declarations</li>
+  <li>Author declarations</li>
+  <li>User declarations</li>
+  <li>Default browser declarations</li>
+</ol>
+<h4>Specificity</h4>
+<p>When importance is the same, specificity is used.</p>
+<h5>Specificity categories</h5>
+<ol>
+  <li>Inline styles</li>
+  <li>IDs</li>
+  <li>Classes, pseudo-classes, attribute</li>
+  <li>Elements, pseudo-classes</li>
+</ol>
+<p>Add the number of occurances of each specificity category for the selector and list these left to right: &#40inline, IDs, classes, elements&#41 as &#40a, b, c, d&#41. To determine the most specific selector, known as the <span style="font-weight:bold">cascaded value</span>, compare the occurances of the first category. If there is a selector with more occurances of a compared category then that selector is the cascaded value. If all selectors have the same number of occurances of a compared category, compare the occurances of the next category.</p>
+<p>When specificity is all the same, source order is used.</p>
+<h4>Source Order</h4>
+<p>The last declaration in the code will override all other declarations and will be applied.</p>
+<h4>Summary</h4>
+<ul>
+  <li>CSS declarations marked with !important have the highest priority;</li>
+  <li>But, only use !important as a last resource. It's better to use specificities - <span style="font-weight: bold">more maintanable code</span>!</li>
+  <li>Inline styles will always have priority over styles in external stylesheets;</li>
+  <li>A selector that contains <span style="font-weight: bold">1</span> ID is more specific than one with <span style="font-weight: bold">1000</span> classes;</li>
+  <li>A selector that contains <span style="font-weight: bold">1</span> class is more specific than one with <span style="font-weight: bold">1000</span> elements;</li>
+  <li>The universal selector * has no specificity value &#40 0, 0, 0, 0 &#41 which means all other selectors have precedence over the universal selector;</li>
+  <li>Rely more on <span style="font-weight: bold">specificity</span> than on the <span style="font-weight: bold">order</span> of selectors;</li>
+  <li>But, rely on order when using 3rd-party stylesheets - always put your author stylesheets last.</li>
+</ul>
+
+<h2>How CSS is Parsed, Part 2: Value Processing</h2>
