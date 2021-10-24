@@ -80,3 +80,41 @@
 </ul>
 
 <h2>How CSS is Parsed, Part 2: Value Processing</h2>
+<h3>How CS Values are Processed</h3>
+<ol>
+  <li>Declared value - author declaration.</li>
+  <li>Cascaded value - after the cascade.</li>
+  <li>Specified value - default value if there is no cascaded value.</li>
+  <li>Computed value - converting relative values to absolute values.</li>
+  <li>Used value - final calculation by CSS engine based on rendered layout.</li>
+  <li>Actual value - determined by browser and device restrictions.</li>
+</ol>
+<h4>Converting units</h4>
+<ul>
+  <li>% fonts - the x% is multiplied by the parent element's computed font-size. Example: If the element's font-size is 150% and the parent element font-size is 16px, then the element font size is 24px.</li>
+  <li>% lengths &#40height, padding, margin...&#41 - the x% is multiplied by the parent element's computed width. Example: if the element's padding is 10% and the parent element's width is 100px, then the element's computed padding is 10px.</li>
+  <p>Font-based relative units</p>
+  <p>Using ems and rems helps with building responsive websites because lengths will also change with font sizes.</p>
+  <ul>
+    <li>em font - uses the parent of the current element as a reference. x ems multiplied by the parent element's computed font size.</li>
+    <li>em length - uses the current element as a reference. x ems multiplied by the current element's computed fon-size.</li>
+    <li>rem - uses the root font-size as a reference. x rems multiplied by the root computed font-size.</li>
+  </ul>
+  <p>Viewport-based relative units</p>
+  <ul>
+    <li>vh - viewport height. xvh where x is 1% of the viewport height.</li>
+    <li>vw - viewport width. xvw where x is 1% of the viewport width.</li>
+  </ul>
+</ul>
+<h4>Summary</h4>
+<ul>
+  <li>Each CSS property has an initial value, used if nothing is declared &#40and if there is no inheritance&#41;</li>
+  <li>Browsers specify a <span style="font-weight: bold">root font-size</span> for each page &#40usually 16px&#41;</li>
+  <li>Percentages and relative values are always converted to pixels &#40in order for the CSS engine to be able to render the page on the screen&#41;</li>
+  <li>Percentages are measured relative to their parent's <span style="font-weight: bold">font-size</span>, if used to specify font-size;</li>
+  <li>Percentages are measured relative to their parent's <span style="font-weight: bold">width</span>, if used to specify lengths;</li>
+  <li>em are measured relative to their <span style="font-weight: bold">parent</span> font-size, if used to specify font-size;</li>
+  <li>em are measured relative to the <span style="font-weight: bold">current</span> font-size, if used to specify lengths;</li>
+  <li>rem are always measured relative to the <span style="font-weight: bold">document's root</span> font-size;</li>
+  <li>vh and vw are simply percentage measurements of the viewport's height and width.</li>
+</ul>
