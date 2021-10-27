@@ -8,24 +8,32 @@ Dark green: #28b485
 */
 
 /* Simple reset using the universal selector */
-* {
+*,
+*::after,
+*::before {
   /* No margin or padding added by the browser. */
   margin: 0;
   padding: 0;
-  /* Borders and padding are not added to total height and width of elements. */
-  box-sizing: border-box;
+  /* Forces inheritance from the body element. */
+  box-sizing: inherit;
+}
 
+/* Setting the root font-size in order to set other font-sizes/length measurements using values relative to the root font-size to add to the responsiveness of the page. Font-size is set to a percentage of the default font-size given by the browser. */
+html {
+  font-size: 62.5%;
 }
 
 body {
   /* Setting font-family and project wide font definitions in body selector to use power of inheritance */
   font-family: "Lato", sans-serif;
   font-weight: 400;
-  font-size: 16px;
+  /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
   /* Applying padding around entire body. */
-  padding: 30px;
+  padding: 3rem;
+  /* Borders and padding are not added to total height and width of elements. */
+  box-sizing: border-box;
 }
 
 /* Using header class to format the header element. */
@@ -50,12 +58,12 @@ body {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 3.5rem;
 }
 
 .text-box {
@@ -72,15 +80,15 @@ body {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
-  margin-bottom: 60px;
+  margin-bottom: 6rem;
 }
 
 /* Displaying main and sub primary heading as block level elements so that they occupy all available width and create line breaks after and before. Span elements are by default inline elements. */
 .heading-primary-main {
   display: block;
-  font-size: 60px;
+  font-size: 6rem;
   font-weight: 400;
-  letter-spacing: 35px;
+  letter-spacing: 3.5rem;
   animation-name: moveInLeft;
   /* animation-duration is the time that the animation should take. */
   animation-duration: 1s;
@@ -94,9 +102,9 @@ body {
 
 .heading-primary-sub {
   display: block;
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 17.4px;
+  letter-spacing: 1.75rem;
   animation-name: moveInRight;
   /* animation-duration is the time that the animation should take. */
   animation-duration: 1s;
@@ -115,10 +123,10 @@ body {
   0% {
     opacity: 0;
     /* Moves the element for the start of the animation. The negative value moves the element to the left. A positive value would move the element to the right. */
-    transform: translateX(-100px);
+    transform: translateX(-10rem);
   }
   80% {
-    transform: translate(10px); 
+    transform: translate(1rem); 
   }
   100% {
     opacity: 1;
@@ -132,10 +140,10 @@ body {
   0% {
     opacity: 0;
     /* Moves the element for the start of the animation. The positive value moves the element to the right. A negative value would move the element to the left. */
-    transform: translateX(100px);
+    transform: translateX(10rem);
   }
   80% {
-    transform: translate(-10px); 
+    transform: translate(-1rem); 
   }
   100% {
     opacity: 1;
@@ -150,25 +158,26 @@ body {
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 1.5rem 4rem;
   display: inline-block;
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all .2s;
   position: relative;
+  font-size: 1.6rem;
 }
 
 /* hovering over the button make the button appear to rise off the page with motion and shadow */
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-.3rem);
   /* box-shadow: shadowInXDirection shadowInYDirection shadowBlur shadowColorAndOpacity*/
-  box-shadow: 0 10px 20px rgba(0,0,0,.2);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
 }
 
 /* clicking on the button makes the button appear to be clicked down and closer to the page with motion down from hover state and a smaller and less blurry shadow */
 .btn:active {
-  transform: translateY(-1px);
+  transform: translateY(-.1rem);
     /* box-shadow: shadowInXDirection shadowInYDirection shadowBlur shadowColorAndOpacity*/
-    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
 .btn-white {
@@ -183,7 +192,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 100%;
-  border-radius: 100px;
+  border-radius: 10rem;
   /* absolute position needs a reference; the reference is the first element with a relative position that it can find, in this case it is the button (.btn:link)  */
   position: absolute;
   top: 0;
@@ -213,7 +222,7 @@ body {
   0% {
     opacity: 0;
     /* Moves the element for the start of the animation. The negative value moves the element to the top. A positive value would move the element to the bottom. */
-    transform: translateY(30px);
+    transform: translateY(3rem);
   }
   100% {
     opacity: 1;

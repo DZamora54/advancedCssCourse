@@ -118,3 +118,27 @@
   <li>rem are always measured relative to the <span style="font-weight: bold">document's root</span> font-size;</li>
   <li>vh and vw are simply percentage measurements of the viewport's height and width.</li>
 </ul>
+
+<h2>How CSS is Parsed, Part 3: Inheritance</h2>
+<h3>Inheritance in CSS</h3>
+<ul>
+  <li>Every CSS property must have a value</li>
+  <li>Is there a cascaded value?</li>
+  <ul>
+    <li>Yes - Specified value = Cascaded Value</li>
+    <li>No - Is the property inherited? &#40specific to each property&#41</li>
+    <ul>
+      <li>No - Specified value = Initial value &#40specific to each property&#41</li>
+      <li>Yes - Specified value = Computed value of parent element <span style="font-weight: bold">THIS IS INHERITANCE</span></li>
+    </ul>
+  </ul>
+</ul>
+<h4>Summary</h4>
+<ul>
+  <li>Inheritance passes the values for some specific properties from parents to children - <span style="font-weight: bold">more maintainable code</span>;</li>
+  <li>Properties related to text are inherited: font-family, font-size, color, etc;</li>
+  <li>The computed value of a property is what gets inherited, <span style="font-weight: bold">not</span> the declared value.</li>
+  <li>Inheritance of a property only works if no one declares a value for that property;</li>
+  <li>The inherit keyword forces inheritance on a certain property;</li>
+  <li>The initial keyword resets a property to its initial value.</li>
+</ul>
