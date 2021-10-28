@@ -142,3 +142,133 @@
   <li>The inherit keyword forces inheritance on a certain property;</li>
   <li>The initial keyword resets a property to its initial value.</li>
 </ul>
+
+<h2>How CSS Renders a Website: The Visual Formatting Model</h2>
+<h3>The Visual Formatting Model</h3>
+<p>The Visual Formatting Model - Algorithm that calculates boxes and dtermines the layout of these boxes, for each element in the render tree, in order to determine the final layout of the page.</p>
+<p>This algorithm takes into account factors like:</p>
+<ul>
+  <li>Dimensions of boxes: the box model;</li>
+  <li>Box type: inline, block and inline-block;</li>
+  <li>Positioning scheme: floats and positioning;</li>
+  <li>Stacking contexts;</li>
+  <li>Other elements in the render tree &#40such as siblings or parents&#41 ;</li>
+  <li>Viewport size, dimensions of images, etc.</li>
+</ul>
+<h3>The Box Model</h3>
+<ul>
+  <li>Content: text, images, etc;</li>
+  <li>Padding: transparent area around the content, inside of the box;</li>
+  <li>Border: goes around the padding and the content;</li>
+  <li>Margin: space between boxes;</li>
+  <li>Fill area: area that gets filled with background color or background image. The content, padding and border but not the margin.</li>
+</ul>
+<h4>The Box Model: Heights and Widths &#40for block level boxes&#41</h4>
+<ul>
+  <li>total width = right border + right padding + specified width + left padding + left border</li>
+  <li>total height = top border + top padding + specified height + bottom padding + bottom border</li>
+  <li>Example: height 0 + 20px + 100px + 20px + 0 = 140px</li>
+</ul>
+<h4>The Box Model with box-sizing: border-box</h4>
+<p>box-sizing: border-box will define the height and width for the entire box including the padding and the border and not just for the content area.</p>
+<p>Specified borders and padding will reduce the inner width of the content area, instead of adding them to the total height and width of the element.</p>
+<p>total width and total height will be equal to specified width and specified height</p>
+<h4>Box Types: Inline, Block-level and Inline-block</h4>
+<h5>Block-level boxes</h5>
+<ul>
+  <li>Elements formatted visually as blocks</li>
+  <li>100% of parent's width</li>
+  <li>Vertically, one after another</li>
+  <li>Box-model applies as showed</li>
+</ul>
+<p>display: block</p>
+<p>(display: flex)</p>
+<p>(display: list-item)</p>
+<p>(display: table)</p>
+<h5>Inline-block boxes</h5>
+<ul>
+  <li>A mix of block and inline</li>
+  <li>Occupies only content's space</li>
+  <li>No line-breaks</li>
+  <li>Box-model applies as showed</li>
+</ul>
+<p>display: inline-block</p>
+<h5>Inline boxes</h5>
+<ul>
+  <li>Content is distributed in lines</li>
+  <li>Occupies only content's space</li>
+  <li>No line-breaks</li>
+  <li>No heights and widths</li>
+  <li>Paddings and margins only horizontal (left and right)</li>
+</ul>
+<p>display: inline</p>
+<h4>Positioning Schemes: Normal Flow, Aboslute Positioning and Floats</h4>
+<h5>Normal Flow</h5>
+<ul>
+  <li>Default positioning scheme;</li>
+  <li>NOT floated;</li>
+  <li>Not absolutely positioned;</li>
+  <li>Elements laid out according to their source order.</li>
+</ul>
+<p>Default</p>
+<p>position: relative</p>
+<h5>Floats</h5>
+<ul>
+  <li>Element is removed from the normal flow;</li>
+  <li>Text and inline elemnts will wrap around the floated element;</li>
+  <li>The container will not adjust its height to the element</li>
+</ul>
+<p>float: left</p>
+<p>float: right</p>
+<h5>Absolute positioning</h5>
+<ul>
+  <li>Element is removed from the normal flow</li>
+  <li>No impact on surrounding content or elements;</li>
+  <li>We use top, bottom, left and right to offset the element from its relatively positioned container.</li>
+</ul>
+<p>position: absolute</p>
+<p>position: fixed</p>
+
+<h2>CSS Architecture, Components and BEM</h2>
+<h3>The Think - Build - Architect Mindset</h3>
+<h4>Think</h4>
+<p><span style="font-weight: bold">Think</span> about the layout of your webpage or web app before writing code.</p>
+<p>Component-driven design</p>
+<ul>
+  <li><span style="font-weight: bold">Modular building blocks</span> that make up interfaces;</li>
+  <li>Held together by the <span style="font-weight: bold">layout</span> of the page;</li>
+  <li><span style="font-weight: bold">Re-usable</span> across a project, and between different projects;</li>
+  <li><span style="font-weight: bold">Independent</span>, allowing us to use them anywhere on the page.</li>
+</ul>
+<h4>Build</h4>
+<p><span style="font-weight: bold">Build</span> your layout in HTML and CSS with a consistent structure for naming classes.</p>
+<p>BEM</p>
+<ul>
+  <li><span style="font-weight: bold">B</span>lock <span style="font-weight: bold">E</span>lement <span style="font-weight: bold">M</span>odifier</li>
+  <li><span style="font-weight: bold">BLOCK</span>: standalone component that is meaningful on its own.</li>
+  <li><span style="font-weight: bold">ELEMENT</span>: part of a block that has no standalone meaning.</li>
+  <li><span style="font-weight: bold">MODIFIER</span>: a different version of a block or an element.</li>
+</ul>
+<p>.block {}</p>
+<p>.block__element {}</p>
+<p>.block__element--modifier {}</p>
+<p>Low-specificity BEM selectors</p>
+<h4>Architect</h4>
+<p>Create a logical <span style="font-weight: bold">architecture</span> for your CSS with files and folders.</p>
+<p>The 7-1 Pattern</p>
+<ul>
+  <li>7 different folder for partial Cass files, and</li>
+  <li>1 main Sass file to import all other files into</li>
+  <li>a compiles CSS stylesheet</li>
+</ul>
+<p>The 7 folders</p>
+<ul>
+  <li>base/ where we put the basic product definitions</li>
+  <li>components/ one file for each component</li>
+  <li>layout/ where we define the overall layout of the project</li>
+  <li>pages/ where we have styles for specific pages of the project</li>
+  <li>themes/ if you want to implement different visual themes</li>
+  <li>abstracts/ where we put code that doesn't output any CSS (such as variables or mix-ins)</li>
+  <li>vendors/ where all third party CSS goes</li>
+</ul>
+

@@ -56,17 +56,17 @@ body {
   position: relative;
 }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
 
-.logo {
+.header__logo {
   height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
   position: absolute;
   /* top and left are in relation to the parent element */
   top: 40%;
@@ -84,7 +84,7 @@ body {
 }
 
 /* Displaying main and sub primary heading as block level elements so that they occupy all available width and create line breaks after and before. Span elements are by default inline elements. */
-.heading-primary-main {
+.heading-primary--main {
   display: block;
   font-size: 6rem;
   font-weight: 400;
@@ -100,7 +100,7 @@ body {
   animation-timing-function: ease-out;
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -180,7 +180,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
 }
@@ -200,7 +200,7 @@ body {
   z-index: -1;
   transition: all .4s;
 }
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -212,7 +212,7 @@ body {
   /* going to opacity 0 fades the element out */
   opacity: 0;
 }
-.btn-animated {
+.btn--animated {
   animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards;
 }
