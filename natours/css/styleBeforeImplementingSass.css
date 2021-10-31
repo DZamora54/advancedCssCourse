@@ -1,0 +1,232 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Simple reset using the universal selector */
+*,
+*::after,
+*::before {
+  /* No margin or padding added by the browser. */
+  margin: 0;
+  padding: 0;
+  /* Forces inheritance from the body element. */
+  box-sizing: inherit;
+}
+
+/* Setting the root font-size in order to set other font-sizes/length measurements using values relative to the root font-size to add to the responsiveness of the page. Font-size is set to a percentage of the default font-size given by the browser. */
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /* Setting font-family and project wide font definitions in body selector to use power of inheritance */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  /* Applying padding around entire body. */
+  padding: 3rem;
+  /* Borders and padding are not added to total height and width of elements. */
+  box-sizing: border-box;
+}
+
+/* Using header class to format the header element. */
+.header {
+  /* The height is always 95% of the viewport height. */
+  height: 95vh;
+  /* Setting the background image. */
+  /* Specify gradients and opacity using background image property */
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(126, 213,111, 0.8),
+    rgba(40, 180, 131, 0.8)),
+  url(../img/hero.jpg);
+  /* Set background size to cover. Whatever the width of the viewport or element, cover will try to fit the element inside of the box. */
+  background-size: cover;
+  /* Setting background position to top so that the top of the image always stays at the top of the container; Top, bottom or center are options. */
+  background-position: top;
+  /* Clip out part of the image using clip-path. Specifying a polygon in which the image or element will still be visible. Coordinates are used to define the polygon; coordinates start at top left and go clockwise and are defined as percent, pixels or any other unit. */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  position: relative;
+}
+
+.header__logo-box {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+}
+
+.header__logo {
+  height: 3.5rem;
+}
+
+.header__text-box {
+  position: absolute;
+  /* top and left are in relation to the parent element */
+  top: 40%;
+  left: 50%;
+  /* transorm is in relation to the element itself */
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+}
+
+/* Displaying main and sub primary heading as block level elements so that they occupy all available width and create line breaks after and before. Span elements are by default inline elements. */
+.heading-primary--main {
+  display: block;
+  font-size: 6rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation-name: moveInLeft;
+  /* animation-duration is the time that the animation should take. */
+  animation-duration: 1s;
+  /* animation-delay delays the start of the animation. */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count repeats the animation the defined number of times. */
+  /* animation-iteration-count: 3; */
+  /* animation-timing-function specifies how a CSS animation should progress over the duration of each cycle. */
+  animation-timing-function: ease-out;
+}
+
+.heading-primary--sub {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 1.75rem;
+  animation-name: moveInRight;
+  /* animation-duration is the time that the animation should take. */
+  animation-duration: 1s;
+  /* animation-delay delays the start of the animation. */
+  /* animation-delay: 3s; */
+  /* animation-iteration-count repeats the animation the defined number of times. */
+  /* animation-iteration-count: 3; */
+  /* animation-timing-function specifies how a CSS animation should progress over the duration of each cycle. */
+  animation-timing-function: ease-out;
+  /* following covers animation-name, animation-duration and animation-timing-function */
+  /* animation: moveInRight 1s ease-out */
+}
+
+/* Moves an element in from the left, bounces it back at 80% through the animation to the defined position. */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The negative value moves the element to the left. A positive value would move the element to the right. */
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translate(1rem); 
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}
+
+/* Moves an element in from the right, bounces it back at 80% through the animation to the defined position. */
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The positive value moves the element to the right. A negative value would move the element to the left. */
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translate(-1rem); 
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}
+
+/* Styling the button element */
+/* Pseudo class for the button */
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  position: relative;
+  font-size: 1.6rem;
+}
+
+/* hovering over the button make the button appear to rise off the page with motion and shadow */
+.btn:hover {
+  transform: translateY(-.3rem);
+  /* box-shadow: shadowInXDirection shadowInYDirection shadowBlur shadowColorAndOpacity*/
+  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+}
+
+/* clicking on the button makes the button appear to be clicked down and closer to the page with motion down from hover state and a smaller and less blurry shadow */
+.btn:active {
+  transform: translateY(-.1rem);
+    /* box-shadow: shadowInXDirection shadowInYDirection shadowBlur shadowColorAndOpacity*/
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.2);
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+}
+
+/* adds an element that looks exactly lie the existing button and is put behind the and hovering out of the element the hidden pseudo-element goes back behind the element.  */
+/* psuedo elements do not appear without defining the content and display properties */
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10rem;
+  /* absolute position needs a reference; the reference is the first element with a relative position that it can find, in this case it is the button (.btn:link)  */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+.btn--white::after {
+  background-color: #fff;
+}
+
+/* after psuedo element only when button is in the hover state */
+/* here the button grows and fades out or makes the element become invisible */
+.btn:hover::after {
+  /* scale multiplies the size of the element. for example a scale value 2 doubles the size of the element */
+  transform: scaleX(1.4) scaleY(1.6);
+  /* going to opacity 0 fades the element out */
+  opacity: 0;
+}
+.btn--animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
+}
+
+/* moves the button in from the bottom */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The negative value moves the element to the top. A positive value would move the element to the bottom. */
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}
