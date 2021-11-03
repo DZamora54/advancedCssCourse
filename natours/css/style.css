@@ -1,10 +1,8 @@
 /*
 COLORS:
-
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
-
 */
 /* Moves an element in from the left, bounces it back at 80% through the animation to the defined position. */
 @keyframes moveInLeft {
@@ -32,7 +30,7 @@ Dark green: #28b485
     /* 0 value moves the element to the default/natural position. */
     transform: translate(0); } }
 
-/* moves the button in from the bottom */
+/* moves the button up and in from the bottom */
 @keyframes moveInBottom {
   0% {
     opacity: 0;
@@ -58,6 +56,10 @@ html {
   font-size: 62.5%; }
 
 body {
+  /* Borders and padding are not added to total height and width of elements. */
+  box-sizing: border-box; }
+
+body {
   /* Setting font-family and project wide font definitions in body selector to use power of inheritance */
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -66,8 +68,7 @@ body {
   color: #777;
   /* Applying padding around entire body. */
   padding: 3rem;
-  /* Borders and padding are not added to total height and width of elements. */
-  box-sizing: border-box; }
+  /* Borders and padding are not added to total height and width of elements. */ }
 
 .heading-primary {
   color: #fff;
