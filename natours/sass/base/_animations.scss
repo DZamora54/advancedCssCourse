@@ -1,1 +1,49 @@
 // this is a folder for the css related to animations.
+
+/* Moves an element in from the left, bounces it back at 80% through the animation to the defined position. */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The negative value moves the element to the left. A positive value would move the element to the right. */
+    transform: translateX(-10rem);
+  }
+  80% {
+    transform: translate(1rem); 
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}
+
+/* Moves an element in from the right, bounces it back at 80% through the animation to the defined position. */
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The positive value moves the element to the right. A negative value would move the element to the left. */
+    transform: translateX(10rem);
+  }
+  80% {
+    transform: translate(-1rem); 
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}
+
+/* moves the button in from the bottom */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The negative value moves the element to the top. A positive value would move the element to the bottom. */
+    transform: translateY(3rem);
+  }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0);
+  }
+}

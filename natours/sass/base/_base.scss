@@ -1,1 +1,23 @@
-// partials file. This file is for the real low level basics, resets and styles for HTML and body element selectors.
+// partials file, file name starts with an underscore. This file is for the real low level basics, resets and styles for HTML and body element selectors.
+
+/* Simple reset using the universal selector */
+*,
+*::after,
+*::before {
+  /* No margin or padding added by the browser. */
+  margin: 0;
+  padding: 0;
+  /* Forces inheritance from the body element. */
+  box-sizing: inherit;
+}
+
+/* Setting the root font-size in order to set other font-sizes/length measurements using values relative to the root font-size to add to the responsiveness of the page. Font-size is set to a percentage of the default font-size given by the browser. */
+// This defines what 1rem is.
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /* Borders and padding are not added to total height and width of elements. */
+  box-sizing: border-box;
+}

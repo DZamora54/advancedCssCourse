@@ -6,6 +6,43 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+/* Moves an element in from the left, bounces it back at 80% through the animation to the defined position. */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The negative value moves the element to the left. A positive value would move the element to the right. */
+    transform: translateX(-10rem); }
+  80% {
+    transform: translate(1rem); }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0); } }
+
+/* Moves an element in from the right, bounces it back at 80% through the animation to the defined position. */
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The positive value moves the element to the right. A negative value would move the element to the left. */
+    transform: translateX(10rem); }
+  80% {
+    transform: translate(-1rem); }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0); } }
+
+/* moves the button in from the bottom */
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    /* Moves the element for the start of the animation. The negative value moves the element to the top. A positive value would move the element to the bottom. */
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    /* 0 value moves the element to the default/natural position. */
+    transform: translate(0); } }
+
 /* Simple reset using the universal selector */
 *,
 *::after,
@@ -31,35 +68,6 @@ body {
   padding: 3rem;
   /* Borders and padding are not added to total height and width of elements. */
   box-sizing: border-box; }
-
-/* Using header class to format the header element. */
-.header {
-  /* The height is always 95% of the viewport height. */
-  height: 95vh;
-  /* Setting the background image. */
-  /* Specify gradients and opacity using background image property */
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 127, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  /* Set background size to cover. Whatever the width of the viewport or element, cover will try to fit the element inside of the box. */
-  background-size: cover;
-  /* Setting background position to top so that the top of the image always stays at the top of the container; Top, bottom or center are options. */
-  background-position: top;
-  /* Clip out part of the image using clip-path. Specifying a polygon in which the image or element will still be visible. Coordinates are used to define the polygon; coordinates start at top left and go clockwise and are defined as percent, pixels or any other unit. */
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    /* top and left are in relation to the parent element */
-    top: 40%;
-    left: 50%;
-    /* transorm is in relation to the element itself */
-    transform: translate(-50%, -50%);
-    text-align: center; }
 
 .heading-primary {
   color: #fff;
@@ -150,39 +158,31 @@ body {
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards; }
 
-/* Moves an element in from the left, bounces it back at 80% through the animation to the defined position. */
-@keyframes moveInLeft {
-  0% {
-    opacity: 0;
-    /* Moves the element for the start of the animation. The negative value moves the element to the left. A positive value would move the element to the right. */
-    transform: translateX(-10rem); }
-  80% {
-    transform: translate(1rem); }
-  100% {
-    opacity: 1;
-    /* 0 value moves the element to the default/natural position. */
-    transform: translate(0); } }
-
-/* Moves an element in from the right, bounces it back at 80% through the animation to the defined position. */
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    /* Moves the element for the start of the animation. The positive value moves the element to the right. A negative value would move the element to the left. */
-    transform: translateX(10rem); }
-  80% {
-    transform: translate(-1rem); }
-  100% {
-    opacity: 1;
-    /* 0 value moves the element to the default/natural position. */
-    transform: translate(0); } }
-
-/* moves the button in from the bottom */
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    /* Moves the element for the start of the animation. The negative value moves the element to the top. A positive value would move the element to the bottom. */
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    /* 0 value moves the element to the default/natural position. */
-    transform: translate(0); } }
+/* Using header class to format the header element. */
+.header {
+  /* The height is always 95% of the viewport height. */
+  height: 95vh;
+  /* Setting the background image. */
+  /* Specify gradients and opacity using background image property */
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 127, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  /* Set background size to cover. Whatever the width of the viewport or element, cover will try to fit the element inside of the box. */
+  background-size: cover;
+  /* Setting background position to top so that the top of the image always stays at the top of the container; Top, bottom or center are options. */
+  background-position: top;
+  /* Clip out part of the image using clip-path. Specifying a polygon in which the image or element will still be visible. Coordinates are used to define the polygon; coordinates start at top left and go clockwise and are defined as percent, pixels or any other unit. */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    /* top and left are in relation to the parent element */
+    top: 40%;
+    left: 50%;
+    /* transorm is in relation to the element itself */
+    transform: translate(-50%, -50%);
+    text-align: center; }
