@@ -1,7 +1,12 @@
 .card {
+  // FUNCTIONALITY
+  // perspective provides the illusion of the card rotating toward the viewer. the larger the value, the less of a visual impact.
   perspective: 150rem;
   -moz-perspective: 150rem;
+
   position: relative;
+  
+  // height is defined to make up for the parent height collapsing due to absolute positioning of the children. this is needed to maintain the effect of using perspective. this is set to the same height as the children.
   height: 50rem;
 
   &__side {
@@ -9,35 +14,61 @@
     font-size: 2rem;
 
     height: 50rem;
+
+    // ease is defined as the transition timing function rather than using the default linear to smooth out the animation.
     transition: all .8s ease;
 
+    // absolute position to "stack" the card sides on top of each other relative to the parent.
+    // width is set to make both sides of the card the same width and not different due to the width of the content.
+    // backface visibility is used so that the backside of the element is not seen when rotated
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     backface-visibility: hidden;
     border-radius: 3px;
+    overflow: hidden;
     box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
 
     &--front {
       background-color: $color-white;
-
     }
 
     &--back {
+      // the back of the card defaults to being rotated 180 degrees.
       transform: rotateY(180deg);
 
       &-1 {
+        // gradient is set on the background image.
         background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
       }
     }
   }
 
+  // rotates the card front on hover on the Y axis by -180 degrees
   &:hover &__side--front {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
   }
 
+  // rotates the back of the card back to 0 degrees on hover.
   &:hover &__side--back {
-    transform: rotateY(0);
+    transform: rotateY(0deg);
+  }
+
+  // FRONT SIDE STYLING
+  &__picture {
+    background-size: cover;
+    height: 23rem;
+
+    // using the clip path property to continue the styling theme from the header.
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+    // background blending. multiple values for different blend modes to choose for this property.
+    background-blend-mode: screen;
+
+    &--1 {
+      background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark), url(../img/nat-5.jpg);
+    }
+
   }
 }
