@@ -1,0 +1,44 @@
+.composition {
+  position: relative;
+
+  &__photo {
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    // changed the tutorial border-radius from 2px to 0px; in chrome, 2px rounded the outline too much for me.
+    border-radius: 0px;
+    position: absolute;
+    z-index: 10;
+    transition: all .2s;
+    // outline-offset adds space between the outline and element
+    outline-offset: 2rem;
+
+    &--p1 {
+      left:0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      outline: 1.5rem solid $color-primary;
+      transform: scale(1.05);
+      box-shadow: 0 2.5rem 4rem rgba($color-black, .5);
+      z-index: 20;
+    }
+  }
+
+  // this line applies the transform to the photos that are not hovered on when you hover over one photo
+  // hover over composition, then hover over a photo that is nested insdide coposition, then select the photo that is not hovered 
+  // composition:hover compostition__photo:not(:hover)
+  &:hover &__photo:not(:hover) {
+    transform: scale(.95);
+  }
+}
