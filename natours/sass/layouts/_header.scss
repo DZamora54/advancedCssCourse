@@ -14,6 +14,7 @@
   /* Setting background position to top so that the top of the image always stays at the top of the container; Top, bottom or center are options. */
   background-position: top;
   /* Clip out part of the image using clip-path. Specifying a polygon in which the image or element will still be visible. Coordinates are used to define the polygon; coordinates start at top left and go clockwise and are defined as percent, pixels or any other unit. */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 

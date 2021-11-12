@@ -12,7 +12,7 @@
     rgba($color-primary-dark, 0.8)),
   url(../img/nat-4.jpg);
   background-size: cover;
-  
+
   // shifts the element up in the Y direction to cover the white space created by skewing the element
   margin-top: -12rem;
 
@@ -27,6 +27,6 @@
 
 .section-tours {
   background-color: $color-grey-light-1;
-  padding: 25rem 0 50rem 0;
+  padding: 25rem 0 15rem 0;
   margin-top: -12rem;
 }

@@ -46,6 +46,15 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+    }
+  }
+
   /* adds an element that looks exactly lie the existing button and is put behind the and hovering out of the element the hidden pseudo-element goes back behind the element.  */
   /* psuedo elements do not appear without defining the content and display properties */
   &::after {
