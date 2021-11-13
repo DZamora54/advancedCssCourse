@@ -1,0 +1,41 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  // defining padding-left to make the left an right padding appear to be the same. this is needed due to the shape getting pushed into the padding space by the transform property.
+  padding-left: 9rem;
+  font-size: $default-font-size;
+  // using transform to continue the non rectangular theme of the page.
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+ 
+    // use shape outside to float text around the shape. shape outside only works if the element is floated and has defined width and height. a vectorized shape needs to be defined.
+    // the first number is the radius of the circle, in this example the radius is 50% of the height and width. the next two numbers are the coordinates for the center of the circle.
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+
+    // clip-path property to make the shape a circle. here the circle is defined with the same values used in shape-outsise.
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    // using transform to add space between the shape and the text. using -3rem as a value pushed the shape into the padding space; padding will need to be added in to adjust for that.
+    // skew is added to the transform to remove the skew effect applied on the direct parent.
+    transform: translateX(-3rem) skewX(12deg);
+  }
+
+  &__image {
+    height: 100%;
+  }
+
+  &__text {
+    // removing the skew effect on the text that was applied on the direct parent by skewing in the opposite direction for the same absolute value.
+    transform: skewX(12deg);
+  }
+}
