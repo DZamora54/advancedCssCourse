@@ -2,7 +2,7 @@
   width: 75%;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba($color-black, .1);
-  background-color: $color-white;
+  background-color: rgba($color-white, .6);
   border-radius: 3px;
   padding: 6rem;
   // defining padding-left to make the left an right padding appear to be the same. this is needed due to the shape getting pushed into the padding space by the transform property.
