@@ -15,6 +15,9 @@
     width: 15rem;
     height: 15rem;
     float: left;
+    position: relative;
+    // overflow: hidden used to correct weird effect when the figure is hovered
+    overflow: hidden;
  
     // use shape outside to float text around the shape. shape outside only works if the element is floated and has defined width and height. a vectorized shape needs to be defined.
     // the first number is the radius of the circle, in this example the radius is 50% of the height and width. the next two numbers are the coordinates for the center of the circle.
@@ -32,10 +35,40 @@
 
   &__image {
     height: 100%;
+    // transform used to center the image in the shape
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all .5s;
+
   }
 
   &__text {
     // removing the skew effect on the text that was applied on the direct parent by skewing in the opposite direction for the same absolute value.
     transform: skewX(12deg);
   }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__image {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+
 }
