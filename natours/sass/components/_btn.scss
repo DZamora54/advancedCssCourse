@@ -2,6 +2,7 @@
 .btn {
   /* Styling the button element */
   /* Pseudo class for the button */
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -12,6 +13,10 @@
     transition: all .2s;
     position: relative;
     font-size: $default-font-size;
+
+    // Change for the <button> element.
+    border: none;
+    cursor: pointer;
   }
 
   /* hovering over the button make the button appear to rise off the page with motion and shadow */
@@ -31,7 +36,9 @@
   }
 
   /* clicking on the button makes the button appear to be clicked down and closer to the page with motion down from hover state and a smaller and less blurry shadow */
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-.1rem);
       /* box-shadow: shadowInXDirection shadowInYDirection shadowBlur shadowColorAndOpacity*/
       box-shadow: 0 .5rem 1rem rgba($color-black,.2);
