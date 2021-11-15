@@ -541,6 +541,14 @@ body {
 .form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
   opacity: 1; }
 
+.footer {
+  background-color: #333;
+  padding: 10rem 0;
+  font-size: 1.4rem; }
+  .footer__logo {
+    width: 15rem;
+    height: auto; }
+
 /* Using header class to format the header element. */
 .header {
   /* The height is always 95% of the viewport height. */
