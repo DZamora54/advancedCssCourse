@@ -1,0 +1,70 @@
+.navigation {
+  &__checkbox {
+    display: none;
+
+  }
+
+  &__button {
+    background-color: $color-white;
+    // height and width are larger than the element that will be covered. if it is the same size there is a chance that some of the covered element might be visible
+    height: 7rem;
+    width: 7rem;
+    position: fixed;
+    // position is slightly shifted in relation to the element that is being covered due to the change in size so the both elements have the same center.
+    top: 6rem;
+    right: 6rem;
+    border-radius: 50%;
+    // z-index places the white button over the radial-gradient background
+    z-index: 2000;
+  }
+
+  &__background {
+    height: 6rem;
+    width: 6rem;
+    border-radius: 50%;
+    // position:fixed doesn't change position as the page is scrolled and takes the element out of the flow.
+    position: fixed;
+    top: 6.5rem;
+    right: 6.5rem;
+    background-image: radial-gradient($color-primary-light, $color-primary-dark);
+    z-index: 1000;
+
+    transform: scale(80);
+  }
+
+  &__nav {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1500;
+
+  }
+
+  &__list {
+    // good opportunity here to use a mixin insted of the next 4 lines.
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    list-style: none;
+    text-align: center;
+
+  }
+
+  &__item {
+    margin: 1rem;
+  }
+
+  &__link {
+    font-size: 3rem;
+    font-weight: 300;
+    padding: 1rem 2rem;
+    color: $color-white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-image: linear-gradient(120deg, orangered 0%, orangered 50%, $color-white 50%);
+  }
+}
