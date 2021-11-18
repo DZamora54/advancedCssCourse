@@ -18,6 +18,8 @@
     z-index: 2000;
 
     box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    text-align: center;
+    cursor: pointer;
   }
 
   &__background {
@@ -30,7 +32,7 @@
     right: 6.5rem;
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
     z-index: 1000;
-    transition: transform .8s cubic-bezier(0.83, 0, 0.17, 1);
+    transition: transform .8s cubic-bezier(0.86, 0, 0.17, 1);
 
     // transform: scale(80);
   }
@@ -44,8 +46,7 @@
 
     opacity: 0;
     width: 0;
-    transition: all .8s;
-
+    transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   &__list {
@@ -58,7 +59,6 @@
     list-style: none;
     text-align: center;
     width: 100%;
-
   }
 
   &__item {
@@ -94,12 +94,65 @@
     }
   }
 
+  // FUNCTIONALITY
   &__checkbox:checked ~ &__background {
-    transform: scale(80);
+    transform: scale(70);
   }
 
   &__checkbox:checked ~ &__nav {
     opacity: 1;
     width: 100%;
+  }
+
+  // ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &,
+    &::before,
+    &::after {
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      transition: all .2s;
+    }
+
+    &::before { top: -.8rem;}
+    &::after { top: .8rem;}
+  }
+
+  // &__icon is a child element of &__button
+  &__button:hover &__icon::before {
+    top: -1rem;
+  }
+  &__button:hover &__icon::after {
+    top: 1rem;
+  }
+
+  // using adjacent sibling. when the checkbox is checked the button, the checkbox's sibling, and the icon, the botton's child is selected.
+  &__checkbox:checked + &__button &__icon {
+    // hides the middle line in the menu icon
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    // rotates the top icon line and moves it to the center of the icon
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    // rotates the top icon line and moves it to the center of the icon
+    top: 0;
+    transform: rotate(-45deg);
   }
 }
