@@ -147,12 +147,12 @@
   &__checkbox:checked + &__button &__icon::before {
     // rotates the top icon line and moves it to the center of the icon
     top: 0;
-    transform: rotate(45deg);
+    transform: rotate(135deg);
   }
 
   &__checkbox:checked + &__button &__icon::after {
     // rotates the top icon line and moves it to the center of the icon
     top: 0;
-    transform: rotate(-45deg);
+    transform: rotate(-135deg);
   }
 }
